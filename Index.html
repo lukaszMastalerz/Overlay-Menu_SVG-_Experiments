@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="Style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlay Menu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+  <body>
+    <div class="customX"></div>
+    <div class="backgroundImage"></div>
+    <div class="button" onclick="openOv()">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+
+    <div class="menu">
+      <div class="buttonC" onclick="closeOv()">
+        <div class="bar1c"></div>
+        <div class="bar2c"></div>
+      </div>
+
+      <ul class="ul">
+        <li class="li"><a data-text="WELCOME" href="#">WELCOME</a></li>
+        <li class="li"><a data-text="PHILOSOPHY" href="#">PHILOSOPHY</a></li>
+        <li class="li"><a data-text="PROJECTS" href="#">PROJECTS</a></li>
+        <li class="li"><a data-text="CONTACT" href="#">CONTACT</a></li>
+      </ul>
+    </div>
+    <div class="middleText">
+      <svg
+        class="middleTextTitle"
+        width="100%"
+        height="100%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <filter id="glitch" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+            <feComponentTransfer in="blur" result="brightness">
+              <feFuncA type="linear" slope="2" />
+            </feComponentTransfer>
+            <feTurbulence
+              type="turbulence"
+              baseFrequency="0.05"
+              numOctaves="200"
+              result="turbulence"
+            >
+              <animate
+                attributeName="baseFrequency"
+                values="0.05;0.2;0.05"
+                dur="100s"
+                repeatCount="indefinite"
+              />
+            </feTurbulence>
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="turbulence"
+              scale="25"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </defs>
+        <text
+          x="50%"
+          y="45%"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          class="glowing-text"
+        >
+          <tspan x="50%" dy="0">HOW</tspan>
+          <tspan class="glitch-effect">YOU</tspan>
+          <tspan x="50%" dy="1.2em">CREATING?</tspan>
+        </text>
+      </svg>
+    </div>
+    <script src="App.js"></script>
+  </body>
+</html>
